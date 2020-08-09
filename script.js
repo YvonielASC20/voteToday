@@ -1,3 +1,15 @@
+let mobileButton = document.querySelector('.icon');
+mobileButton.addEventListener('click', moblieNav);
+
+function moblieNav() {
+    let tab = document.getElementById("myLinks");
+    if (tab.style.display === "block") {
+        tab.style.display = "none";
+    } else {
+        tab.style.display = "block";
+    }
+}
+
 let button = document.querySelector('#button');
 button.addEventListener("click", submission);
 
@@ -13,30 +25,30 @@ function submission(event) {
     console.log(dob[1]);
 
     fetch('https://cors-anywhere.herokuapp.com/https://voter.svrs.nj.gov/api/voters', {
-        "headers": {
-            "accept": "application/json, text/plain, */*",
-            "accept-language": "en-US,en;q=0.9",
-            "content-type": "application/json",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin",
-            "cookie": "visid_incap_1909031=R07hMB3ZRImCvMOZ38EvF77UKl8AAAAAQUIPAAAAAACntMkpDtoxkSuqKxXD3aE0; __cfduid=dd79ee6683eb7d60a8c0e4524df7342241596642520; WT_FPC=id=172.27.131.234-3580030000.30829375:lv=1596639062548:ss=1596639062548; nmstat=1596642727150; incap_ses_221_1909031=AienJWZ+pypme7LhZiYRA4/qLF8AAAAAz/efo0+7cPna6qU6HJfJVQ==; session=2htf-skYDCa2d1VtUAsyrw..|1596786699|j8HV23Oazm4P-E9nUthzasDRGOl7kKNTDgucVC6OiykHGnAiDsF46fdBlOADyP3KECF8cGqeolmSU5Kfpmzm26YRPLvizXhCLNYyble5pFR8CgN61U_EvFRNBtx4ExDO|CcyZBkhrLF01lVE0eZD0DpG_EzQ."
-        },
-        "referrer": "https://voter.svrs.nj.gov/registration-check/results?firstName="+ firstName +"&middleInitial=&lastName="+ lastName +"&dob="+ dob[0] +"%2F"+ dob[1],
-        "referrerPolicy": "no-referrer-when-downgrade",
-        "body": "{\"firstName\":\""+firstName+"\",\"middleInitial\":\"\",\"lastName\":\""+lastName+"\",\"dob\":\""+dob[0]+"/"+dob[1]+"\"}",
-        "method": "POST",
-        "mode": "cors"
-    })
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "accept-language": "en-US,en;q=0.9",
+                "content-type": "application/json",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin",
+                "cookie": "visid_incap_1909031=R07hMB3ZRImCvMOZ38EvF77UKl8AAAAAQUIPAAAAAACntMkpDtoxkSuqKxXD3aE0; __cfduid=dd79ee6683eb7d60a8c0e4524df7342241596642520; WT_FPC=id=172.27.131.234-3580030000.30829375:lv=1596639062548:ss=1596639062548; nmstat=1596642727150; incap_ses_221_1909031=AienJWZ+pypme7LhZiYRA4/qLF8AAAAAz/efo0+7cPna6qU6HJfJVQ==; session=2htf-skYDCa2d1VtUAsyrw..|1596786699|j8HV23Oazm4P-E9nUthzasDRGOl7kKNTDgucVC6OiykHGnAiDsF46fdBlOADyP3KECF8cGqeolmSU5Kfpmzm26YRPLvizXhCLNYyble5pFR8CgN61U_EvFRNBtx4ExDO|CcyZBkhrLF01lVE0eZD0DpG_EzQ."
+            },
+            "referrer": "https://voter.svrs.nj.gov/registration-check/results?firstName=" + firstName + "&middleInitial=&lastName=" + lastName + "&dob=" + dob[0] + "%2F" + dob[1],
+            "referrerPolicy": "no-referrer-when-downgrade",
+            "body": "{\"firstName\":\"" + firstName + "\",\"middleInitial\":\"\",\"lastName\":\"" + lastName + "\",\"dob\":\"" + dob[0] + "/" + dob[1] + "\"}",
+            "method": "POST",
+            "mode": "cors"
+        })
 
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (myJson) {
-        if(myJson == '') {
-            console.log("You are not resigtered!");
-        } else {
-            console.log(myJson[0].votingPrivilegeDate);
-        }
-    });
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (myJson) {
+            if (myJson == '') {
+                console.log("You are not resigtered!");
+            } else {
+                console.log(myJson[0].votingPrivilegeDate);
+            }
+        });
 }
