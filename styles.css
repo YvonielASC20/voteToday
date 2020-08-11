@@ -84,10 +84,6 @@ input[type=text] {
     .link:hover {
         text-decoration: underline;
     }
-
-    .activeM {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 480px) {
