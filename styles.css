@@ -14,21 +14,27 @@ input[type=text] {
 }
 
 #regPage {
+    position: absolute;
+    top: 115px;
     width: 100vw;
     height: 100vh;
 }
 
-.reg {
-    z-index: -1;
+#regHead {
     display: flex;
     justify-content: center;
+}
+
+.reg {
+    display: flex;
     justify-content: space-around;
+    margin-top: 75px;
 
 }
 
 #buttonR,
 #buttonL {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(182, 228, 255);
     color: black;
     font-size: 15px;
     outline: none;
@@ -39,12 +45,10 @@ input[type=text] {
 
 #buttonR:hover,
 #buttonL:hover {
-    background-color: rgb(218, 218, 218);
+    background-color: rgb(210, 246, 255);
 }
 
 @media screen and (min-width: 480px) {
-    #regHead {}
-
     input[type=text] {
         width: 300px;
     }
@@ -81,7 +85,9 @@ input[type=text] {
         text-decoration: underline;
     }
 
-    .active {}
+    .activeM {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -96,8 +102,6 @@ input[type=text] {
         overflow: hidden;
         background-color: white;
         position: relative;
-        display: flex;
-        flex-direction: column-reverse;
     }
 
     /* Hide the links inside the navigation menu (except for logo/home) */
@@ -137,7 +141,6 @@ input[type=text] {
     .active {
         background-color: whitesmoke;
         color: black;
-        letter-spacing: 2px;
     }
 }
 

@@ -7,9 +7,8 @@ function moblieNav() {
     if (tab.style.display === "block") {
         tab.style.display = "none";
     } else {
-        tab.style.display = "block";
+        tab.style.display = "block"
     }
-    
 }
 
 //Voter Registration
