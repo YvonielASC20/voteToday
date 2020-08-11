@@ -1,10 +1,91 @@
+body {
+    background-color: rgb(223, 223, 223);
+    font-family: 'Roboto', sans-serif;
+    color: rbg(56, 56, 56);
+}
+
+input[type=text] {
+    font-size: 20px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(56, 56, 56);
+    outline: none;
+}
+
+#regPage {
+    width: 100vw;
+    height: 100vh;
+}
+
+.reg {
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+
+}
+
+#buttonR,
+#buttonL {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15px;
+    outline: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+#buttonR:hover,
+#buttonL:hover {
+    background-color: rgb(218, 218, 218);
+}
+
 @media screen and (min-width: 480px) {
+    #regHead {}
+
+    input[type=text] {
+        width: 300px;
+    }
+
     .topnav {
+        overflow: hidden;
+        text-decoration: none;
+        background-color: white;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 75px;
+        box-shadow: 1px 1px 3px black;
+        margin: 0px;
+        padding: 0px;
+        z-index: 9001;
+        font-weight: 900;
+    }
+
+    .icon {
         display: none;
     }
+
+    .link {
+        margin-right: 15px;
+        color: black;
+        text-decoration: none;
+        float: right;
+        padding: 10px 20px;
+    }
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+    .active {}
 }
 
 @media screen and (max-width: 480px) {
+
     /*Mobile Nav Bar*/
     .topnav {
         z-index: 1;
@@ -15,6 +96,8 @@
         overflow: hidden;
         background-color: white;
         position: relative;
+        display: flex;
+        flex-direction: column-reverse;
     }
 
     /* Hide the links inside the navigation menu (except for logo/home) */
@@ -57,14 +140,8 @@
         letter-spacing: 2px;
     }
 }
-/*#infoCont{
-    display: block;
-}
-#locationCont{
-    display:none;
-}*/
 
- /*.mapTest {
+/*.mapTest {
     width: 70vw;
     height: 60vw;
     margin: 0 auto; }*/
