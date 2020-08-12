@@ -1,9 +1,9 @@
 body {
     font-weight: 900;
     overflow-x: hidden;
-    background-color: rgb(219, 219, 219);
+    background-color:#ececec ;
     font-family: 'Oswald', sans-serif;
-    color: rgb(56, 56, 56);
+    color: rgb(65, 65, 65);
 }
 
 input[type=text] {
@@ -49,12 +49,13 @@ input[type=text] {
     background-color: rgb(210, 246, 255);
 }
 
-iframe {
-    position: absolute;
-    top: 350px;
+.loader {
+    visibility: hidden;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
 }
 
-.loader {
+.loader2 {
     visibility: hidden;
     border-radius: 50%;
     animation: spin 2s linear infinite;
@@ -68,6 +69,11 @@ iframe {
     100% {
         transform: rotate(360deg);
     }
+}
+
+#map {
+    border: 3px solid black;
+    box-shadow: 0px 0px 10px black;
 }
 
 
@@ -135,7 +141,7 @@ iframe {
 
     .comp {
         position: absolute;
-        top: -5px;
+        top: -10px;
         left: 20px;
         z-index: 9;
     }
@@ -150,6 +156,15 @@ iframe {
         width: 70px;
         height: 70px;
         margin: auto;
+    }
+
+    .loader2 {
+        border: 14px solid #f3f3f3;
+        border-top: 14px solid #5e5e5e;
+        width: 70px;
+        height: 70px;
+        margin-top: auto;
+        margin-left: 25vw;
     }
 
     #map {
@@ -255,11 +270,31 @@ iframe {
     .loader {
         border: 12px solid #f3f3f3;
         border-top: 12px solid #5e5e5e;
+        margin-top: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 60px;
+        width: 60px;
+    }
+
+    .loader2 {
+        border: 12px solid #f3f3f3;
+        border-top: 12px solid #5e5e5e;
         margin-top: 40%;
         margin-left: auto;
         margin-right: auto;
         height: 60px;
         width: 60px;
+    }
+
+    #map {
+        position: absolute;
+        height: 42vh;
+        width: 90vw;
+        top: 80vh;
+        margin-bottom: 3vh;
+        margin-left: 3vw;
+        box-shadow: 0px 0px 10px black;
     }
 }
 

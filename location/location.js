@@ -1,5 +1,6 @@
 let responseH1 = document.querySelector('.responseH1');
 let responseP = document.querySelector('.responseP');
+let loader2 = document.querySelector('.loader2');
 
 let buttonL = document.querySelector('#buttonL');
 buttonL.addEventListener("click", submissionL);
@@ -7,6 +8,7 @@ buttonL.addEventListener("click", submissionL);
 //Polling Locations
 function submissionL(event, pollLocation) {
     event.preventDefault();
+    loader2.style.visibility = "visible"
     let streetN = document.getElementById('userStreet').value;
     let str = document.getElementById('userStreet');
     let address = str.value.split(' ');
@@ -36,6 +38,7 @@ function submissionL(event, pollLocation) {
             console.log(location);
             let poll = location.pollPlace.address.street;
             responseH1.innerHTML = `Your polling locaiton is ${poll}`;
+            loader2.style.visibility = "hidden";
             let pollLoc = poll.split(' ');
             let url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + pollLoc[0] + '+' + pollLoc[1] + '+' + pollLoc[2] + ',+Nj&key=AIzaSyDAuD9IhJnc81k7Ohjehpse9hRgtody5tU';
 
@@ -45,7 +48,8 @@ function submissionL(event, pollLocation) {
                     return response.json();
                 })
                 .then(function (location) {
-                    //let pollLocation = location.results[0].geometry.location;
+                        let pollLocation = location.results[0].geometry.location;
+                        map.setCenter(pollLocation);
                 });
         });
 }
@@ -54,7 +58,7 @@ let map;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 0, lng: 0 },
-        zoom: 17
+        center: { lat: 40.7404028, lng: -74.2296709 },
+        zoom: 15
     });
 }
