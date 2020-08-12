@@ -1,11 +1,19 @@
 //Voter Registration
 let responseH1 = document.querySelector('.responseH1');
 let responseP = document.querySelector('.responseP');
+let loader = document.querySelector('.loader');
+let nj = document.querySelector('#nj');
+/*let img = document.createElement('img');
+let att = document.createAttribute("class");       
+att.value = "image";                           
+img.setAttributeNode(att); 
+img.src = "../assests/Check.jpg"*/
 
 let buttonR = document.querySelector('#buttonR');
 buttonR.addEventListener('click', submissionR);
 
 function submissionR(event) {
+    loader.style.visibility = "visible";
     event.preventDefault();
     let firstName = document.getElementById('userFirstName').value;
     let lastName = document.getElementById('userLastName').value;
@@ -33,12 +41,16 @@ function submissionR(event) {
         })
         .then(function (registration) {
             if (registration == '') {
-                responseH1.innerHTML = "You are registered!";
-                responseP.innerHTML = "You should click the link below to register in the state of New Jersey."
+                responseH1.innerHTML = "You are not registered to vote in the state of New Jersey!";
+                responseP.innerHTML = "You should click the link below to register in the state of New Jersey.";
+                nj.innerHTML = "Click Here!"
+                loader.style.visibility = "hidden";
+                //img.src = "../assests/XMark.jpg"
             } else {
-                console.log(registration[0]);
-                responseH1.innerHTML = `You have registered to vote on ${registration[0].voterRegistation}!`;
-                responseP.innerHTML = "Browse this website to be better equipped to vote."
+                responseH1.innerHTML = `You have been registered to vote since ${registration[0].votingPrivilegeDate}!`;
+                responseP.innerHTML = "Browse this website to be better equipped to vote.";
+                loader.style.visibility = "hidden";
+                //img.src = "../assests/Check.jpg"
             }
         });
 }

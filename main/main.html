@@ -9,12 +9,10 @@
     <script src="../script.js" defer></script>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@100&family=Roboto:wght@100&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 </head>
-
 <body id="registration">
+    <h1 class="comp">Vote Today</h1>
     <div class="topnav">
         <a class="active">Vote Today</a>
         <div id="myLinks">
@@ -25,7 +23,7 @@
         </div>
         <a href="javascript:void(0);" class="icon"><i class="fa fa-bars"></i></a>
     </div>
-    <div class="logoCont"><img src="https://asc-2020-gs-pm.slack.com/files/U016ZK24RLZ/F01823SGZC7/free_sample_by_wix__2_.jfif"></div>
+    <!--<div class="logoCont"><img src="https://asc-2020-gs-pm.slack.com/files/U016ZK24RLZ/F01823SGZC7/free_sample_by_wix__2_.jfif"></div>-->
     <div id="regPage">
         <h1 id="regHead">Voter Registration Check</h1>
         <form class="reg">
@@ -33,10 +31,11 @@
             <input type="text" placeholder="Last Name" autocomplete="off" id="userLastName">
             <input type="text" placeholder="MM/YYYY" autocomplete="off" id="userDOB">
             <button id="buttonR">Submit</button>
-        </form>  
+        </form>
         <h1 class="responseH1"></h1>
-        <p class="responseP"></p>
+        <p class="responseP"><a id="nj" href="https://www.state.nj.us/state/elections/voter-registration.shtml"
+                target="_blank"></a></p>
+        <div class="loader"></div>
     </div>
 </body>
-
 </html>

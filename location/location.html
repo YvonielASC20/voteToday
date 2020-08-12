@@ -9,13 +9,12 @@
     <script src="../script.js" defer></script>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@100&family=Roboto:wght@100&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgV2lz-wlJvK7DCgPf-WQQZfLXxmb7-KI&callback=initMap&libraries=&v=weekly" defer></script>
 </head>
-
 <body id="registration">
+    <h1 class="comp">Vote Today</h1>
     <div class="topnav">
         <a class="active">Vote Today</a>
         <div id="myLinks">
@@ -36,13 +35,6 @@
         <h1 class="responseH1"></h1>
         <p class="responseP"></p>
     </div>
-    <div class="google">
-        <iframe
-                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d48382.05325631711!2d-74.26469034656311!3d40.720694892692194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1svoter%20registration%20office!5e0!3m2!1sen!2sus!4v1597173679348!5m2!1sen!2sus"
-                width="600" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                tabindex="0"></iframe>
-    </div>
-
+    <div id="map"></div>
 </body>
-
 </html>
