@@ -1,7 +1,7 @@
 body {
     font-weight: 900;
     overflow-x: hidden;
-    background-color:#ececec ;
+    background-color: #ececec;
     font-family: 'Oswald', sans-serif;
     color: rgb(65, 65, 65);
 }
@@ -34,7 +34,8 @@ input[type=text] {
 }
 
 #buttonR,
-#buttonL {
+#buttonL,
+#buttonO {
     background-color: rgb(182, 228, 255);
     color: black;
     font-size: 15px;
@@ -45,8 +46,13 @@ input[type=text] {
 }
 
 #buttonR:hover,
-#buttonL:hover {
+#buttonL:hover,
+#buttonO:hover {
     background-color: rgb(210, 246, 255);
+}
+
+.error {
+    visibility: hidden;
 }
 
 .loader {
@@ -74,6 +80,11 @@ input[type=text] {
 #map {
     border: 3px solid black;
     box-shadow: 0px 0px 10px black;
+}
+
+#nj {
+    color: black;
+    font-size: 20px;
 }
 
 
@@ -125,8 +136,14 @@ input[type=text] {
         text-decoration: underline;
     }
 
+    .error {
+        color: red;
+        margin-left: 8vw;
+    }
+
     .responseH1 {
-        margin-top: 100px;
+        width: 50vw;
+        margin-top: 60px;
         margin-left: 50px;
     }
 
@@ -172,7 +189,7 @@ input[type=text] {
         top: 350px;
         margin-left: 60vw;
         margin-right: auto;
-        margin-bottom: 50px;;
+        margin-bottom: 50px;
         height: 60vh;
         width: 35vw;
     }
@@ -184,6 +201,23 @@ input[type=text] {
         height: 300px;
         width: 300px;
         border: none;
+    }
+
+    #container {
+        position: absolute;
+        top: 375px;
+    }
+
+    .repContainer {
+        background-color: white;
+        border: 3px solid black;
+        box-shadow: 0px 0px 5px black;
+        border-radius: 20px;
+        margin-left: 4vw;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 87vw;
+        padding: 40px 20px;
     }
 }
 
@@ -249,14 +283,15 @@ input[type=text] {
     }
 
     #buttonL,
-    #buttonR {
+    #buttonR,
+    #buttonO {
         position: absolute;
         top: 300px;
     }
 
     .responseH1 {
-        font-size: 30px;
-        margin-top: 40%;
+        font-size: 25px;
+        margin-top: 34%;
         margin-left: 30px;
         margin-right: 30px;
     }
@@ -267,10 +302,13 @@ input[type=text] {
         margin-right: 30px;
     }
 
+    #nj {
+        margin-left: 30px;
+    }
+
     .loader {
         border: 12px solid #f3f3f3;
         border-top: 12px solid #5e5e5e;
-        margin-top: 30%;
         margin-left: auto;
         margin-right: auto;
         height: 60px;
@@ -291,12 +329,25 @@ input[type=text] {
         position: absolute;
         height: 42vh;
         width: 90vw;
-        top: 80vh;
+        top: 82vh;
         margin-bottom: 3vh;
         margin-left: 3vw;
         box-shadow: 0px 0px 10px black;
     }
-}
 
-/*.map {width: 400px;
-     height: 300px;}*/
+    #container {
+        position: absolute;
+        top: 63vh;
+    }
+
+    .repContainer {
+        background-color: white;
+        border-radius: 20px;
+        border: 3px solid black;
+        box-shadow: 0px 0px 5px black;
+        margin-left: 2vw;
+        margin-top: 2vh;
+        padding: 10px 10px;
+        width: 85vw;
+    }
+}

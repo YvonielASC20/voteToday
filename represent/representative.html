@@ -5,15 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vote Today</title>
-    <script src="location.js" defer></script>
+    <script src="representative.js" defer></script>
     <script src="../script.js" defer></script>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgV2lz-wlJvK7DCgPf-WQQZfLXxmb7-KI&callback=initMap&libraries=&v=weekly"
-        defer></script>
 </head>
 
 <body id="registration">
@@ -29,18 +25,14 @@
         <a href="javascript:void(0);" class="icon"><i class="fa fa-bars"></i></a>
     </div>
     <div id="regPage">
-        <h1 id="regHead">Your Polling Location</h1>
+        <h1 id="regHead">Your Representatives</h1>
         <form class="reg">
-            <input type="text" placeholder="Street Address" autocomplete="off" id="userStreet">
-            <input type="text" placeholder="Zip Code" autocomplete="off" id="userZip">
-            <button id="buttonL">Search</button>
+            <input type="text" placeholder="Street Address" autocomplete="off" id="userAddress">
+            <input type="text" placeholder="State Initials" autocomplete="off" id="userState">
+            <button id="buttonO">Search</button>
         </form>
-        <p class="error">*Fill all fields</p>
-        <h1 class="responseH1"></h1>
-        <p class="responseP"></p>
-        <div class="loader2"></div>
     </div>
-    <div id="map"></div>
+    <div id="container"></div>
 </body>
 
 </html>

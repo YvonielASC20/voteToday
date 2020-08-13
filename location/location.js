@@ -1,20 +1,29 @@
 let responseH1 = document.querySelector('.responseH1');
 let responseP = document.querySelector('.responseP');
 let loader2 = document.querySelector('.loader2');
+let error = document.querySelector('.error');
 
 let buttonL = document.querySelector('#buttonL');
 buttonL.addEventListener("click", submissionL);
 
 //Polling Locations
-function submissionL(event, pollLocation) {
+function submissionL(event) {
     event.preventDefault();
-    loader2.style.visibility = "visible"
     let streetN = document.getElementById('userStreet').value;
     let str = document.getElementById('userStreet');
     let address = str.value.split(' ');
     let zip = document.getElementById('userZip').value;
 
-    fetch("https://cors-anywhere.herokuapp.com/https://voter.svrs.nj.gov/api/polling-places/search", {
+    if ( streetN == '' || zip == '' ) {
+        error.style.visibility = "visible";
+        responseH1.innerHTML = '';
+        responseP.innerHTML = '';
+    } else {
+        loader2.style.visibility = "visible";
+        error.style.visibility = "hidden";
+        responseH1.innerHTML = '';
+        responseP.innerHTML = '';
+        fetch("https://cors-anywhere.herokuapp.com/https://voter.svrs.nj.gov/api/polling-places/search", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
                 "accept-language": "en-US,en;q=0.9",
@@ -35,10 +44,12 @@ function submissionL(event, pollLocation) {
             return response.json();
         })
         .then(function (location) {
-            console.log(location);
             let poll = location.pollPlace.address.street;
-            responseH1.innerHTML = `Your polling locaiton is ${poll}`;
+            let pollDate = location.upcomingElections[0].date.split('T');
+            responseH1.innerHTML = `Your polling locaiton is ${location.pollPlace.name} at ${poll}`;
+            responseP.innerHTML = `Upcoming Elction: ${location.upcomingElections[0].name} on ${pollDate[0]}`
             loader2.style.visibility = "hidden";
+
             let pollLoc = poll.split(' ');
             let url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + pollLoc[0] + '+' + pollLoc[1] + '+' + pollLoc[2] + ',+Nj&key=AIzaSyDAuD9IhJnc81k7Ohjehpse9hRgtody5tU';
 
@@ -48,17 +59,21 @@ function submissionL(event, pollLocation) {
                     return response.json();
                 })
                 .then(function (location) {
-                        let pollLocation = location.results[0].geometry.location;
-                        map.setCenter(pollLocation);
+                    let pollLocation = location.results[0].geometry.location;
+                    map.setCenter(pollLocation);
                 });
         });
+    }
 }
 
 let map;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 40.7404028, lng: -74.2296709 },
+        center: {
+            lat: 40.7404028,
+            lng: -74.2296709
+        },
         zoom: 15
     });
 }
