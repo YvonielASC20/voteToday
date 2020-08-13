@@ -4,7 +4,6 @@ let responseP = document.querySelector('.responseP');
 let loader = document.querySelector('.loader');
 let nj = document.querySelector('#nj');
 let error = document.querySelector('.error');
-//let img = document.querySelector('.image')
 
 let buttonR = document.querySelector('#buttonR');
 buttonR.addEventListener('click', submissionR);
@@ -29,8 +28,9 @@ function submissionR(event) {
         nj.innerHTML = '';
     } else {
         if (firstName == "John" && lastName == "Thomas" && dob[0] == "01" && dob[1] == "2000") {
-            responseH1.innerHTML = `You have been registered to vote since ${registration[0].votingPrivilegeDate}!`;
-            responseP.innerHTML = "Browse this website to be better equipped to vote.";
+            responseH1.innerHTML = `${firstName} ${lastName} is not registered to vote in the state of New Jersey!`;
+            responseP.innerHTML = "You should click the link below to register in the state of New Jersey.";
+            nj.innerHTML = "Click Here!"
             loader.style.visibility = "hidden";
         } else {
             responseH1.innerHTML = '';
@@ -64,12 +64,10 @@ function submissionR(event) {
                         responseP.innerHTML = "You should click the link below to register in the state of New Jersey.";
                         nj.innerHTML = "Click Here!"
                         loader.style.visibility = "hidden";
-                        //img.src = "../assests/XMark.jpg"
                     } else {
-                        responseH1.innerHTML = `You have been registered to vote since ${registration[0].votingPrivilegeDate}!`;
+                        responseH1.innerHTML = `${firstName} ${lastName} has been registered to vote since ${registration[0].votingPrivilegeDate}!`;
                         responseP.innerHTML = "Browse this website to be better equipped to vote.";
                         loader.style.visibility = "hidden";
-                        //img.src = "../assests/Check.jpg"
                     }
                 });
         }

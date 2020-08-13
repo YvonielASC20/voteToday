@@ -12,7 +12,9 @@ function submissionO(event) {
     let state = document.getElementById('userState').value;
 
     if (street == '' || state == '') {
+        error.style.visibility = "visible";
     } else {
+        error.style.visibility = "hidden";
         let url2 = "https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyCVICfdav7jhL0w0PBTFvZtRFLwFt2g-SM&address=" + street[0] + "%20" + street[1] + "%20" + street[2] + ".%20" + state
         fetch(url2)
 
@@ -20,13 +22,13 @@ function submissionO(event) {
                 return response.json();
             })
             .then(function (info) {
-                console.log(info);
                 for (i = info.officials.length - 1; i > -1; i--) {
                     let div = document.createElement('div');
                     let h1 = document.createElement('h1');
                     let party = document.createElement('p');
                     let phone = document.createElement('p');
                     let webLink = document.createElement('a');
+                   
 
                     let divAtt = document.createAttribute("class");
                     divAtt.value = "repContainer";
@@ -48,7 +50,7 @@ function submissionO(event) {
                     div.appendChild(phone);
                     div.appendChild(webLink);
                     container.appendChild(div);
-                    h1.innerHTML = info.officials[i].name;
+                    h1.innerHTML = `${info.officials[i].name}`;         
                     party.innerHTML = `Party: ${info.officials[i].party}`;
                     phone.innerHTML = `Contact: ${info.officials[i].phones[0]}`;
                     webLink.innerHTML = `Website: ${info.officials[i].urls}`;
